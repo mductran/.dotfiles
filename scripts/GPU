@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Author: christmastree
+
+function get_utilization {
+    nvidia-smi --query-gpu=utilization.gpu --format=csv | awk -v FS="," "{print $2}" | head -2 | tail -n 1
+}
+
+function get_temperature {
+    nvidia-smi --query-gpu=temperature.gpu --format=csv | awk -v FS="," "{print $2}" | head -2 | tail -n 1
+}
+
+function get_powerusage {
+    nvidia-smi --query-gpu=power.draw --format=csv | awk -v FS="," "{print $2}" | head -2 | tail -n 1
+}
+
+
+function set_values() {
+    
+}
